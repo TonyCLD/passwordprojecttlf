@@ -1,4 +1,36 @@
 // Assignment Code
+const resultEL = document.getElementById('result');
+const lengthEl = document.getElementById('length');
+const uppercaseEl = document.getElementById('uppercase');
+const lowercaseEl = document.getElementById('lowercase');
+const numbersEL = document.getElementById('numbers');
+const symbolsEl = document.getElementById('symbols');
+const generateEl = document.getElementById('generate');
+const clipboardEl = document.getElementById('clipboard');
+
+console.log(getRandomLower ());
+console.log(getRandomUpper ());
+console.log(getRandomNumber ());
+console.log(getRandomSymbol ());
+
+const randomFunc = {
+  lower: getRandomLower,
+  upper: getRandomUpper,
+  symbol: getRandomSymbol,
+  number: getRandomSymbol,
+
+}
+
+generateEl.addEventListener('click', () => {
+  const length = +lengthEl.value;
+  const hasLower = lowercaseEl.Checked;
+  const hasUpper = uppercaseEl.Checked;
+  const hassymbols = symbolsEl.Checked;
+  const hasNumber = numbercaseEl.Checked;
+  generatePassword(haslower, hasNumber, hasUpper, hassymbols, length)
+
+  console.log(haslower, hasNumber, hasUpper, hassymbols);
+} );
 
 function getRandomLower () {
   return String.fromCharCode(Math.floor(Math.random() * 26) +97)
@@ -9,11 +41,15 @@ function getRandomUpper () {
 function getRandomNumber () {
   return String.fromCharCode(Math.floor(Math.random() * 10) +48)
 }
-
+function getRandomSymbol () {
+  const symbols = '!@#$%^&*(){}[]=<>/,.'
+  return symbols[Math.floor(Math.random() * symbols.length)];
+}
 
 console.log(getRandomLower ());
 console.log(getRandomUpper ());
 console.log(getRandomNumber ());
+console.log(getRandomSymbol ());
 
 var generateBtn = document.querySelector("#generate");
 
